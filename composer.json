@@ -18,7 +18,7 @@
             "url": "https://github.com/ventacommerce/contracts.git"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "venta/contracts": "dev-master",
         "php-ds/php-ds": "dev-master"
