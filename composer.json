@@ -1,0 +1,29 @@
+{
+    "name": "venta/event",
+    "description": "Venta eCommerce Framework Event package",
+    "authors": [
+        {
+            "name": "Konstantins Zukovs",
+            "email": "kz@scandiweb.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Venta\\Event\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ventacommerce/contracts.git"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "venta/contracts": "dev-master",
+        "php-ds/php-ds": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.2"
+    }
+}
