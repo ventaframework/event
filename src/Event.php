@@ -44,11 +44,10 @@ class Event implements EventContract
     /**
      * {@inheritdoc}
      */
-    public function __construct(string $name, array $observers = [])
+    public function __construct(string $name, PriorityQueue $observers = null)
     {
         $this->_name = $name;
-
-        $this->_observers = new PriorityQueue;
+        $this->_observers = $observers ?: new PriorityQueue;
         $this->_data = new Map;
     }
 
