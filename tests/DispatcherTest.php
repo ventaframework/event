@@ -89,26 +89,4 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
         $instance->setEventsDispatcher($dispatcher);
         $this->assertSame($dispatcher, $instance->getEventsDispatcher());
     }
-
-    /**
-     * @test
-     */
-    public function canMakePerStepCallback()
-    {
-        $dispatcher = new \Venta\Event\Dispatcher;
-
-        $dispatcher->observe('test', function($event) {
-            $event->setData('integer', $event->getData('integer') + 1);
-        });
-
-        $dispatcher->observe('test', function($event) {
-            $event->setData('integer', $event->getData('integer') + 5);
-        });
-
-        $event = $dispatcher->dispatch('test', ['integer' => 10], function($event) {
-            $event->setData('integer', $event->getData('integer') + 10);
-        });
-
-        $this->assertEquals(36, $event->getData('integer'));
-    }
 }
