@@ -3,6 +3,7 @@
 namespace Venta\Event\Traits;
 
 use Venta\Contracts\Event\DispatcherContract;
+use Venta\Event\Dispatcher;
 
 /**
  * Class EventDispatcherAwareTrait
@@ -31,6 +32,10 @@ trait EventDispatcherAwareTrait
      */
     public function getEventsDispatcher(): DispatcherContract
     {
+        if ($this->_eventDispatcher === null) {
+            $this->_eventDispatcher = new Dispatcher;
+        }
+
         return $this->_eventDispatcher;
     }
 }
