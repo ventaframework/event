@@ -39,12 +39,16 @@ class Dispatcher implements DispatcherContract
     /**
      * {@inheritdoc}
      */
-    public function dispatch(string $name, array $arguments = []): EventContract
+    public function dispatch(string $name, array $arguments = [], callable $stepCallback = null): EventContract
     {
         $event = $this->_prepareEventForDispatch($name, $arguments);
 
         foreach ($event->getObservers() as $observer) {
             $observer($event);
+
+            if ($stepCallback !== null) {
+                $stepCallback($event);
+            }
 
             if ($event->wasStopped()) {
                 break;
