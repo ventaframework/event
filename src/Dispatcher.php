@@ -3,7 +3,6 @@
 namespace Venta\Event;
 
 use Ds\Map;
-use Ds\PriorityQueue;
 use Venta\Contracts\Event\DispatcherContract;
 use Venta\Contracts\Event\EventContract;
 

@@ -73,4 +73,18 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('one', $event->getData('string'));
         $this->assertEquals(['string' => 'one'], $event->getData());
     }
+
+    /**
+     * @test
+     */
+    public function canUseTrait()
+    {
+        $dispatcher = new \Venta\Event\Dispatcher;
+        $instance = new class {
+            use \Venta\Event\Traits\EventDispatcherAwareTrait;
+        };
+
+        $instance->setEventsDispatcher($dispatcher);
+        $this->assertSame($dispatcher, $instance->getEventsDispatcher());
+    }
 }
